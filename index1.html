@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Login Form | CodingLab</title> -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+ <!-- for eye -->
+     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> <title>Document</title> -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    
+</head>
+  <body>
+      <img id = "port" src="https://i.pinimg.com/originals/23/ee/98/23ee988f5d03bba60ccd1a3fbc75a208.gif" height="120" width="120">
+    <div class="container">
+      <div class="wrapper">
+        <div class="title">
+            <div class="cc" style="z-index: 1;">
+            <span class="heading" id="s1">Welcome</span>
+            <span class="heading" id="s2">To</span>
+            <span class="heading" id="s3">Login </span>
+            <span class="heading" id="s4"> Page</span>
+            </div>
+            <!-- <p>Welcome to login page</p> -->
+        <!-- <img class="aa" src="img1.jpeg "> -->
+        <img class="aa" name = "slide" width="550" height="400" onclick="ImageChange()">
+        <div class="one"  onclick="click1()"></div>
+        <div class="one"  onclick="click2()"></div>
+        <div class="one"  onclick="click3()"></div>
+        </div>
+        <form accept="" method="get">
+          <div class="row">
+            <i class="fas fa-user"></i>
+            
+            <input type="text" id="userid" placeholder="Email or Phone" onclick="key()" required onfocus="value=''">
+          </div>
+          <div class="row">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" placeholder="Password" onclick="key1()" required onfocus="value=''">
+           <div class="eye">
+            <i class="fas fa-eye bi" id = "eye" onclick="validd()"></i>
+            <i class="fas fa-eye-slash bi" id = "eye1" onclick="validd()"></i>
+          </div>
+        </div>
+          <div class="pass"><a href="#">Forgot password?</a></div>
+          <div class="row button">
+            <input type="submit" class="btn" onclick = valid() value="Login">
+          </div>
+          <div class="signup-link">Not a member? <a href="signUp.html">Signup now</a></div>
+        </form>
+      </div>
+      <button class="btn"><a href="home.html" target="blank"> Back To Home </a></button>
+    </div>
+
+  </body>
+  <script>
+function valid(){
+    var eem = document.getElementById("userid").value;
+    var psswd = document.getElementById("password").value;
+    
+    // userid.value == " ";
+    // password.value == "";
+    
+    if(eem == "user" && psswd == "0341"){
+      
+        // alert("login Sucessful")
+        // window.location.replace("http://127.0.0.1:5500/JS/home.html"); 
+        window.open('home.html')
+    }
+    else if(eem == "" && psswd == ""){
+      
+        alert("pleas fill user name and password")
+        
+    }
+    else{
+        alert("wrong credentials")
+    }
+
+    }
+
+    var state = false;
+    function validd(){
+        // var x = document.querySelector("#passwor").value;
+        // var xx = document.querySelector("#nam").value;
+        var y = document.getElementById("eye");
+        var z = document.getElementById("eye1");
+        // console.log(x);
+
+
+if(state){
+    document.getElementById("password").setAttribute("type","password")
+    y.style.display ="block" 
+    z.style.display = "none";
+    document.getElementById("eye").style.marginTop="-35px"
+
+    state = false;
+}
+else{
+    document.getElementById("password").setAttribute("type","text")
+    y.style.display ="none" ;
+    z.style.display = "block";
+    document.getElementById("eye1").style.marginTop="-35px";
+
+    state = true;
+}
+    }
+
+
+    var i = 0;
+    var img = [];
+
+    img[0] = 'img1.jpeg';
+    img[1] = 'img2.jpeg';
+    img[2] = 'img3.jpeg';
+
+    function ImageChange(){
+        document.slide.src = img[i];
+        if(i<img.length-1){
+            i++
+        }
+        else{
+            i=0;
+        }
+        setTimeout("ImageChange()",4000);
+    }
+    window.onload = ImageChange;
+
+    function click1(){
+        var bb = document.getElementsByClassName("aa").src = 'img1.jpeg';
+        console.log(bb);
+        document.slide.src = bb
+    }  function click2(){
+        var bc = document.getElementsByClassName("aa").src = 'img2.jpeg';
+        console.log(bc);
+        document.slide.src = bc
+    }  function click3(){
+        var bd = document.getElementsByClassName("aa").src = 'img3.jpeg';
+        console.log(bd);
+        document.slide.src = bd
+    }
+
+
+
+    $('.aa').mouseleave(function(){
+    $('#s1').fadeIn(1000);
+    $('#s2').fadeIn(2000);
+    $('#s3').fadeIn(3000);
+    $('#s4').fadeIn(4000);
+    
+});
+$('.aa').mouseenter(function(){
+    $('#s1').fadeOut(1000);
+    $('#s2').fadeOut(2000);
+    $('#s3').fadeOut(3000);
+    $('#s4').fadeOut(4000);
+})
+
+function key(){
+  var pp=  document.getElementById("port");
+  console.log(pp);
+  pp.src = "https://miro.medium.com/max/382/1*2us2ZKD01bpesGFHGU4caQ.gif"
+    // document.getElementById('userid').style.display="none"
+}
+function key1(){
+  var xx=  document.getElementById("port");
+  console.log(xx);
+//   xx.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKOaoaORA5hDdW-gdnJPaAIJ0yG_-TOHiADSNHQ-IkRs8WGHAwnNwhplFByON7HwRp8tM&usqp=CAU"
+     xx.src = "https://d1j8pt39hxlh3d.cloudfront.net/uploads/see_no_evil_monkey_256_1.gif"
+
+
+    // document.getElementById('userid').style.display="none"
+}
+  </script>
+</html>
